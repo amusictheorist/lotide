@@ -6,7 +6,7 @@ const assertEqual = function(actual, expected) {
   }
 };
 
+assertEqual("Rush", "Rush");
 assertEqual("Lighthouse Labs", "Bootcamp");
 assertEqual(1, 1);
-assertEqual("Rush", "Rush");
 assertEqual(13, 17);
