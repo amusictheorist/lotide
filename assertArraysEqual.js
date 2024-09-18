@@ -10,13 +10,15 @@ const eqArrays = function(arr1, arr2) {
   return true;
 };
 
-const assertArraysEqual = function(arr1, arr2) {
-  if (eqArrays(arr1, arr2)) {
-    console.log(`✅✅✅ Comparison Passed: arrays are identical`);
+const assertArraysEqual = function(actual, expected) {
+  if (eqArrays(actual, expected)) {
+    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
   } else {
-    console.log(`❌❌❌ Comparison Failed: arrays are not identical`);
+    console.log(`❌❌❌ Assertion Failed: ${actual} !== ${expected}`);
   }
 };
+
+
 
 assertArraysEqual([1, 2, 3], [1, 2, 3]);
 assertArraysEqual([1, 2, 3], [3, 2, 1]);
