@@ -11,15 +11,15 @@ const eqArrays = function(arr1, arr2) {
 };
 
 const assertArraysEqual = function(arr1, arr2) {
-  if (arr1 === arr2) {
+  if (eqArrays(arr1, arr2)) {
     console.log(`✅✅✅ Comparison Passed: arrays are identical`);
   } else {
     console.log(`❌❌❌ Comparison Failed: arrays are not identical`);
   }
 };
 
-assertArraysEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
-assertArraysEqual(eqArrays([1, 2, 3], [3, 2, 1]), false);
-assertArraysEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true);
-assertArraysEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false);
-assertArraysEqual(eqArrays([], []), true);
+assertArraysEqual([1, 2, 3], [1, 2, 3]);
+assertArraysEqual([1, 2, 3], [3, 2, 1]);
+assertArraysEqual(["1", "2", "3"], ["1", "2", "3"]);
+assertArraysEqual(["1", "2", "3"], ["1", "2", 3]);
+assertArraysEqual([], []);
