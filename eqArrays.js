@@ -21,4 +21,4 @@ assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // Should PASS
 assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false); // Should PASS
 assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true); // Should PASS
 assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false); // Should PASS
-assertEqual(eqArrays([], [1]), true); // Should PASS (Edge case: empty arrays)
+assertEqual(eqArrays([], []), true); // Should PASS (Edge case: empty arrays)
