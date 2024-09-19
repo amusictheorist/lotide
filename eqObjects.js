@@ -19,43 +19,39 @@ const assertEqual = function(actual, expected) {
 };
 
 const eqObjects = function(object1, object2) {
-  let keys1 = Object.keys(object1);
-  let keys2 = Object.keys(object2);
+  const keys1 = Object.keys(object1);
+  const keys2 = Object.keys(object2);
   if (keys1.length !== keys2.length) {
     return false;
   }
-  for (key of keys1) {
-    if (object1[key] !== object2[key]) {
-      if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
-        return eqArrays(keys1, keys2);
-      } else {
+  for (let key of keys1) {
+    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
+      if (!eqArrays(object1[key], object2[key])) {
         return false;
       }
-    } else {
-      return true;
+    } else if (object1[key] !== object2[key]) {
+      return false;
     }
   }
+  return true;
 };
-
-// const shirtObject = { color: "red", size: "medium" };
-// const anotherShirtObject = { size: "medium", color: "red" };
-// eqObjects(shirtObject, anotherShirtObject);
-// assertEqual(eqObjects(shirtObject, anotherShirtObject), true);
-
-// const longSleeveShirtObject = { size: "medium", color: "red", sleeveLength: "long" };
-// eqObjects(shirtObject, longSleeveShirtObject);
-// assertEqual(eqObjects(shirtObject, longSleeveShirtObject), false);
 
 const multiColorShirtObject = { colors: ["red", "blue"], size: "medium" };
 const anotherMultiColorShirtObject = { size: "medium", colors: ["red", "blue"] };
-eqObjects(multiColorShirtObject, anotherMultiColorShirtObject); // => true
+assertEqual(eqObjects(multiColorShirtObject, anotherMultiColorShirtObject), true);
 
 const longSleeveMultiColorShirtObject = {
   size: "medium",
   colors: ["red", "blue"],
   sleeveLength: "long",
 };
-eqObjects(multiColorShirtObject, longSleeveMultiColorShirtObject); // => false
-
-assertEqual(eqObjects(multiColorShirtObject, anotherMultiColorShirtObject), true);
 assertEqual(eqObjects(multiColorShirtObject, longSleeveMultiColorShirtObject), false);
+
+const nestedArrayObject1 = { colors: [["red", "blue"], ["green", "yellow"]], size: "large" };
+const nestedArrayObject2 = { size: "large", colors: [["red", "blue"], ["green", "yellow"]] };
+assertEqual(eqObjects(nestedArrayObject1, nestedArrayObject2), true);
+
+const nestedArrayObject3 = { colors: [["red", "blue"], ["green", "yellow"]], size: "large" };
+const nestedArrayObject4 = { size: "large", colors: [["red", "blue"], ["yellow", "green"]] };
+assertEqual(eqObjects(nestedArrayObject3, nestedArrayObject4), false);
+
