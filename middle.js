@@ -19,7 +19,7 @@ const assertArraysEqual = function(actual, expected) {
 };
 
 const middle = function(array) {
-  if (array.length === 1 || array.length === 2) {
+  if (array.length <= 2) {
     return [];
   }
   const midIndex = Math.floor(array.length / 2);
