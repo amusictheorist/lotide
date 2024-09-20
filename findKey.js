@@ -23,10 +23,10 @@ const restaurants =   {
   Akelarre: { stars: 3 },
 };
 
-const actual1 = findKey(restaurants, key => key.stars === 2);
+const actual1 = findKey(restaurants, value => value.stars === 2);
 const expected1 = "noma";
 
-const actual2 = findKey(restaurants, key => key.stars === 3);
+const actual2 = findKey(restaurants, value => value.stars === 3);
 const expected2 = "Akaleri";
 
 assertEqual(actual1, expected1);
