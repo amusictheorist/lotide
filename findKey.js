@@ -6,4 +6,4 @@ const findKey = function(obj, callback) {
   }
 };
 
-moduel.exports = findKey;
+module.exports = findKey;
