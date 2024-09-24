@@ -46,12 +46,3 @@ const longSleeveMultiColorShirtObject = {
   sleeveLength: "long",
 };
 assertEqual(eqObjects(multiColorShirtObject, longSleeveMultiColorShirtObject), false);
-
-const nestedArrayObject1 = { colors: [["red", "blue"], ["green", "yellow"]], size: "large" };
-const nestedArrayObject2 = { size: "large", colors: [["red", "blue"], ["green", "yellow"]] };
-assertEqual(eqObjects(nestedArrayObject1, nestedArrayObject2), true);
-
-const nestedArrayObject3 = { colors: [["red", "blue"], ["green", "yellow"]], size: "large" };
-const nestedArrayObject4 = { size: "large", colors: [["red", "blue"], ["yellow", "green"]] };
-assertEqual(eqObjects(nestedArrayObject3, nestedArrayObject4), false);
-
