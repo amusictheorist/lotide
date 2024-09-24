@@ -9,5 +9,7 @@ const tail = function(arr) {
 
 module.exports = tail;
 
-assertEqual(tail(["Hello", "Lighthouse", "Labs"]));
-assertEqual(tail([1, 2, 3]));
+assertEqual(tail(["Hello", "Lighthouse", "Labs"]).length, 2);
+assertEqual(tail([1, 2, 3]).length, 2);
+assertEqual(tail([1]).length, 0);
+assertEqual(tail([]).length, 0);
